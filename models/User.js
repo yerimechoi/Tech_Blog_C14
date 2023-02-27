@@ -20,15 +20,9 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                len: [4]
+                len: [4],
+                isUppercase: true,
             }
-        },
-        email: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                isEmail: true
-            },
         },
         password: {
             type: DataTypes.STRING,
