@@ -8,15 +8,12 @@ router.get('/', async (req, res) => {
             include: [{
                 model: User,
                 attributes: ['username'],
-            },
-            {
-                model: Comments,
-                attributes: ['id', 'comment', 'user_id', 'post_id', 'date'],
-            }],
+            }]
         });
 
         const posts = homeData.map((post) => post.get({ plain: true }));
 
+        console.log(posts)
         res.render('homepage', {
             posts,
             loggedIn: req.session.loggedIn
@@ -50,7 +47,7 @@ router.get('/post/:id', withAuth, async (req, res) => {
 
         const post = homeData.get({ plain: true });
 
-        res.render('singlepost', {
+        res.render('comment', {
             post,
             loggedIn: req.session.loggedIn
         });
@@ -59,37 +56,8 @@ router.get('/post/:id', withAuth, async (req, res) => {
     }
 });
 
-router.get('/post/:id/comment', withAuth, async (req, res) => {
-    try {
-        const homeData = await Post.findOne({
-            where: {
-                user_id: req.session.user_id
-            },
-            attributes: [
-                'id',
-                'title',
-                'content',
-                'date',
-            ],
-            include: [{
-                model: User,
-                attributes: ['username'],
-            },
-            {
-                model: Comments,
-                attributes: ['id', 'comment', 'user_id', 'post_id', 'date'],
-            }],
-        });
-
-        const posts = homeData.map((post) => post.get({ plain: true }));
-
-        res.render('post-comment', {
-            posts,
-            loggedIn: req.session.loggedIn
-        });
-    } catch (err) {
-        res.status(500).json(err);
-    }
+router.get('/create', withAuth,(req, res) => {
+    res.render('create');
 });
 
 router.get('/login', (req, res) => {

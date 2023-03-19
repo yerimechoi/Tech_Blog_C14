@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    font: helvetica;
+}
+
+/* Nav */
+.nav {
+    background-color: #424875;
+    padding: 20px 10px 20px 10px;
+    margin: 0 0 20px 0;
+}
+
+.nav h4 {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin: 0 20px 0 20px;
+}
+
+.nav a {
+    color: #ffffff;
+    padding: 0 20px;
+    text-decoration: none;
+}
+
+.nav h1 {
+    justify-content: start;
+    align-items: center;
+    margin: 40px 100px 20px 40px;
+    padding: 10px;
+    color: #424875;
+    font-weight: bold;
+    white-space: nowrap;
+    width: 190px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 6px 6px #959595;
+}
+
+/* Login/Signup */
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+
+.left {
+    align-items: center;
+}
+
+.right {
+    align-items: center;
+}
+
+.padding-1 {
+    padding: 0 80px 0 0;
+    border-right: 1px solid #424875;
+    width: 100%;
+}
+
+.padding-2 {
+    padding: 0 0 0 80px;
+    width: 100%;
+}
+
+.card-header h2 {
+    text-align: center;
+}
+
+label{
+    width: 100%;
+    padding: 10px 0 0 0;
+}
+
+input {
+    width: 100%;
+    margin: 0 0 10px 0;
+}
+
+.btn {
+    width: 100%;
+    margin: 20px 0 0 0;
+    background-color: #424875;
+    color: #ffffff;
+}
+
+.btn:hover {
+    background-color: #515891;
+    color: #ffffff;
+}
+

@@ -21,4 +21,4 @@ const createNewFormHandler = async (event) => {
 
 document
   .querySelector('.create-form')
-  .addEventListener('submit', createNewFormHandler);
+  .addEventListener('click', createNewFormHandler);

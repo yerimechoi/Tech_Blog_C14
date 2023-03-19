@@ -49,7 +49,7 @@ router.get('/post/:id', withAuth, async (req, res) => {
         }
         const post = dashData.get({ plain: true });
 
-        res.render('singlepost', {
+        res.render('comment', {
             post,
             loggedIn: req.session.loggedIn
         });
