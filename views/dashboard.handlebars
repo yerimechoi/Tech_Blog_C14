@@ -1,16 +1,19 @@
 <div>
+    {{!-- {{#if user.username == username}} --}}
+    {{#each posts}}
     <div class="card">
         <div class="card-header">
             <h2>
                 <a href="/post/{{id}}">{{title}}</a>
             </h2>
-            <p>Posted by {{User.username}} on {{createdAt}}</p>
+            <p>Posted by {{user.username}} on {{createdAt}}</p>
         </div>
         <div class="card-body">
-            <p>{{body}}</p>
+            <p>{{content}}</p>
         </div>
     </div>
+    {{/each}}
+    {{!-- {{else}} --}}
+    {{!-- <h2>Go create a post!</h2>
+    {{/if}} --}}
 </div>
-
-<!--change to user's post 
-add input form for posts-->

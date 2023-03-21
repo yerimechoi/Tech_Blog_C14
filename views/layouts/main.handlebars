@@ -11,7 +11,7 @@
 
 <body class="flex-column min-100-vh">
     <div class="nav">
-        <h4>
+        <h4 class="nav-header">
             <a href="/">Home</a>
             <a href="/dashboard">Dashboard</a>
             <a href="/create">Create Post</a>
@@ -21,7 +21,10 @@
             <a href="/login">Login/Signup</a>
             {{/if}}
         </h4>
-        <h1>Tech Blog</h1>
+        <div class="nav-title">
+            <h1>Tech Blog</h1>
+        </div>
+
     </div>
 
     <main class="container">
@@ -31,6 +34,7 @@
     {{#if loggedIn}}
     <script src="/js/logout.js"></script>
     {{/if}}
+    <script src="/js/create.js"></script>
 </body>
 
 </html>

@@ -6,36 +6,43 @@
 
 /* Nav */
 .nav {
-    background-color: #424875;
+    margin: 0 0 40px 0;
+    background-color: #423c31;
     padding: 20px 10px 20px 10px;
-    margin: 0 0 20px 0;
+}
+
+.nav-title {
+    margin: 0 20px 0 20px;
 }
 
 .nav h4 {
     display: flex;
     justify-content: start;
     align-items: center;
-    margin: 0 20px 0 20px;
+
 }
 
 .nav a {
-    color: #ffffff;
+    color: #d5d2b4;
     padding: 0 20px;
     text-decoration: none;
+}
+
+.nav a:hover {
+    color: #8e8a80;
 }
 
 .nav h1 {
     justify-content: start;
     align-items: center;
-    margin: 40px 100px 20px 40px;
     padding: 10px;
-    color: #424875;
+    color: #423c31;
     font-weight: bold;
     white-space: nowrap;
     width: 190px;
-    background-color: #ffffff;
+    background-color: #f1eed1;
     border-radius: 12px;
-    box-shadow: 6px 6px #959595;
+    box-shadow: 6px 6px #8e8a80;
 }
 
 /* Login/Signup */
@@ -48,15 +55,16 @@
 
 .left {
     align-items: center;
+    margin: 80px 40px;
 }
 
 .right {
     align-items: center;
+    margin: 80px 40px;
 }
 
 .padding-1 {
     padding: 0 80px 0 0;
-    border-right: 1px solid #424875;
     width: 100%;
 }
 
@@ -69,7 +77,7 @@
     text-align: center;
 }
 
-label{
+label {
     width: 100%;
     padding: 10px 0 0 0;
 }
@@ -82,12 +90,58 @@ input {
 .btn {
     width: 100%;
     margin: 20px 0 0 0;
-    background-color: #424875;
+    background-color: #8e8a80;
     color: #ffffff;
 }
 
 .btn:hover {
-    background-color: #515891;
+    background-color: #423c31;
     color: #ffffff;
 }
 
+/* Home/Dashboard */
+.container {
+    padding: 0px;
+}
+
+.card {
+    border-radius: 20px;
+    background-color: #d5d2b4;
+    color: #423c31;
+    padding: 40px 60px;
+    margin: 20px 0 60px 0;
+    box-shadow: 6px 6px #8e8a80;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 20px 0;
+}
+
+.card-header h2 {
+    text-align: start;
+}
+
+.card-header a {
+    text-decoration: none;
+    color: #423c31;
+}
+
+.card-header a:hover {
+    color: #8e8a80;
+}
+
+.card-header p {
+    text-align: end;
+    text-decoration: none;
+    font-size: 15px;
+    color: #423c31;
+    padding: 30px 0 0 0;
+    font-weight: 500;
+}
+
+.card-body p {
+    font-size: 20px;
+}

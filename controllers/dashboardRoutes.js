@@ -5,20 +5,26 @@ const withAuth = require('../utils/auth');
 router.get('/', withAuth, async (req, res) => {
     try {
         const dashData = await Post.findAll({
-            include: [{
-                model: User,
-                attributes: ['username'],
-            }],
+            // include: [{
+            //     model: User,
+            //     attributes: ['username'],
+            // }],
+            where: {
+                user_id: req.session.user_id
+            }
         });
 
         const posts = dashData.map((post) => post.get({ plain: true }));
 
+        console.log(posts)
         res.render('dashboard', {
             posts,
             loggedIn: req.session.loggedIn
         });
     } catch (err) {
-        res.status(500).json(err);
+        // res.status(500).json(err);
+        console.log(err);
+        res.redirect('login')
     }
 });
 
@@ -51,23 +57,12 @@ router.get('/post/:id', withAuth, async (req, res) => {
 
         res.render('comment', {
             post,
+            username: post.username,
             loggedIn: req.session.loggedIn
         });
     } catch {
         res.status(500).json(err);
     }
-});
-
-router.get('/login', (req, res) => {
-    if (req.session.loggedIn) {
-        res.redirect('/');
-        return;
-    }
-    res.render('login');
-});
-
-router.get('/signup', (req, res) => {
-    res.render('signup');
 });
 
 module.exports = router;

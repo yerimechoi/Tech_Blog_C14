@@ -29,12 +29,6 @@ router.get('/post/:id', withAuth, async (req, res) => {
             where: {
                 id: req.params.id
             },
-            attributes: [
-                'id',
-                'title',
-                'content',
-                'date',
-            ],
             include: [{
                 model: User,
                 attributes: ['username'],
