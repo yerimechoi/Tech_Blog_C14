@@ -42,7 +42,7 @@ router.get('/:id/comment', withAuth, async (req, res) => {
             },
             include: {
                 model: Post,
-                attributes: ['user_id'],
+                attributes: ['post_id'],
             },
         });
         if (!commentData) {
@@ -51,7 +51,7 @@ router.get('/:id/comment', withAuth, async (req, res) => {
 
         const comment = commentData.get({ plain: true });
 
-        res.render('comment', {
+        res.render(':id/comment', {
             comment,
             username: comment.username
         });

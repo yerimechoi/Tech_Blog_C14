@@ -5,7 +5,7 @@ const commentFormHandler = async (event) => {
     const comment = document.querySelector('textarea[name="comment"]').value;
 
     if (post_id && comment) {
-        const response = await fetch('/api/post', {
+        const response = await fetch('/api/comment', {
             method: 'POST',
             body: JSON.stringify({ post_id, comment }),
             headers: { 'Content-Type': 'application/json' },
