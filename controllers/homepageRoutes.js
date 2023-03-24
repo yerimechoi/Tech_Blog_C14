@@ -32,20 +32,24 @@ router.get('/post/:id', withAuth, async (req, res) => {
             include: [{
                 model: User,
                 attributes: ['username'],
-            },
-            {
-                model: Comments,
-                attributes: ['id', 'comment', 'user_id', 'post_id', 'date'],
+            // },
+            // {
+            //     model: Comments,
+            //     attributes: ['id', 
+            //     'comment', 
+            //     'user_id', 
+            //     'post_id', 
+            //     'createdAt'],
             }],
         });
 
         const post = homeData.get({ plain: true });
 
-        res.render('comment', {
+        res.render('post', {
             post,
             loggedIn: req.session.loggedIn
         });
-    } catch {
+    } catch (err) {
         res.status(500).json(err);
     }
 });

@@ -7,10 +7,18 @@
         <div class="card-body">
             <p>{{post.content}}</p>
         </div>
-        {{#if comment.length}}
-        {{#each comment}}
-        <section class="card-body">
+        <button class="btn">
+            <a href="/post/{{post.id}}/comment">Add Comment</a>
+        </button>
+    </div>
+
+    {{#if comments.length}}
+    {{#each comments}}
+    <div class="card">
+        <div class="card-header">
             <h4>Comments</h4>
+        </div>
+        <section class="card-body">
             <div>
                 <p>
                     {{comment}}
@@ -22,12 +30,6 @@
         </section>
         {{/each}}
         {{/if}}
-
-        <form>
-            <input name="post-id" type="hidden" value="{{post.id}}" />
-            <textarea name="comment"></textarea>
-            <button class="btn comment-form">Comment</button>
-        </form>
     </div>
 </div>
 

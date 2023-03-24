@@ -19,7 +19,7 @@ Post.init(
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                len: [2,300],
+                len: [2, 300],
             },
         },
         createdAt: {
@@ -29,7 +29,7 @@ Post.init(
         user_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'user',
+                model: 'User',
                 key: 'id',
             },
         },

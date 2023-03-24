@@ -2,12 +2,12 @@ const createNewFormHandler = async (event) => {
     event.preventDefault();
 
     const title = document.querySelector('input[name="title"]').value;
-    const body = document.querySelector('textarea[name="body"]').value;
+    const content = document.querySelector('textarea[name="content"]').value;
 
-    if (title && body) {
-        const response = await fetch('/api/posts', {
+    if (title && content) {
+        const response = await fetch('/api/post', {
             method: 'POST',
-            body: JSON.stringify({ title, body }),
+            body: JSON.stringify({ title, content }),
             headers: { 'Content-Type': 'application/json' },
         });
 
@@ -20,5 +20,5 @@ const createNewFormHandler = async (event) => {
 };
 
 document
-  .querySelector('.create-form')
-  .addEventListener('click', createNewFormHandler);
+    .querySelector('.create-form')
+    .addEventListener('click', createNewFormHandler);

@@ -5,10 +5,10 @@ const withAuth = require('../utils/auth');
 router.get('/', withAuth, async (req, res) => {
     try {
         const dashData = await Post.findAll({
-            // include: [{
-            //     model: User,
-            //     attributes: ['username'],
-            // }],
+            include: [{
+                model: User,
+                attributes: ['username'],
+            }],
             where: {
                 user_id: req.session.user_id
             }
@@ -34,28 +34,19 @@ router.get('/post/:id', withAuth, async (req, res) => {
             where: {
                 id: req.params.id
             },
-            attributes: [
-                'id',
-                'title',
-                'content',
-                'date',
-            ],
-            include: [{
+            include: {
                 model: User,
                 attributes: ['username'],
             },
-            {
-                model: Comments,
-                attributes: ['id', 'comment', 'user_id', 'post_id', 'date'],
-            }],
-        });
-
+        })
         if (!dashData) {
             res.status(404).json.end();
         }
+
         const post = dashData.get({ plain: true });
 
-        res.render('comment', {
+
+        res.render('post', {
             post,
             username: post.username,
             loggedIn: req.session.loggedIn

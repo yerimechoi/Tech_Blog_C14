@@ -18,17 +18,17 @@ router.post('/', async (req, res) => {
 
 router.post('/login', async (req, res) => {
     try {
-        console.log(req.body);
-        const userData = await User.findOne({ where: { username: req.body.username } });
-        console.log('from user routes', userData);
-
+        const userData = await User.findOne({ 
+            where: { 
+                username: req.body.username 
+            } 
+        });
         if (!userData) {
             res.status(400).json({ message: 'Incorrect username or password, please try again' });
             return;
         }
 
         const validPassword = await userData.checkPassword(req.body.password);
-
         if (!validPassword) {
             res.status(400).json({ message: 'Incorrect username or password, please try again' });
             return;
@@ -48,13 +48,13 @@ router.post('/login', async (req, res) => {
 
 router.post('/signup', async (req, res) => {
     try {
-        console.log(req.body);
-        const userData = await User.create({ username: req.body.username, password: req.body.password });
-        console.log(userData);
+        const userData = await User.create({ 
+            username: req.body.username, 
+            password: req.body.password 
+        });
 
         req.session.save(() => {
             req.session.user_id = userData.id;
-            // req.session.username = userData.username;
             req.session.loggedIn = true;
 
             res.status(200).json({ user: userData, message: 'You are now logged in!' });

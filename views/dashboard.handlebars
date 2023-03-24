@@ -1,19 +1,26 @@
-<div>
-    {{!-- {{#if user.username == username}} --}}
-    {{#each posts}}
+<div class="dashboard">
+    {{#if posts.length}}
+    {{#each posts as |post|}}
     <div class="card">
         <div class="card-header">
             <h2>
                 <a href="/post/{{id}}">{{title}}</a>
             </h2>
-            <p>Posted by {{user.username}} on {{createdAt}}</p>
+            <p>Created on {{createdAt}}</p>
         </div>
         <div class="card-body">
             <p>{{content}}</p>
         </div>
     </div>
     {{/each}}
-    {{!-- {{else}} --}}
-    {{!-- <h2>Go create a post!</h2>
-    {{/if}} --}}
+    {{else}}
+    <div>
+        <h2 class="no-post">No posts :/</h2>
+    </div>
+    {{/if}}
+    <button class=" btn create-btn">
+        <a href="/create">Create Post</a>
+    </button>
 </div>
+
+<script src="js/create.js"></script>

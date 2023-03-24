@@ -1,16 +1,15 @@
 const commentFormHandler = async (event) => {
     event.preventDefault();
 
-    const postId = document.querySelector('input[name="post-id"]').value;
-    const comments = document.querySelector('textarea[name="comments"]').value;
+    const post_id = document.querySelector('input[name="post-id"]').value;
+    const comment = document.querySelector('textarea[name="comment"]').value;
 
-    if (postId && comments) {
-        const response = await fetch('/api/comment', {
+    if (post_id && comment) {
+        const response = await fetch('/api/post', {
             method: 'POST',
-            body: JSON.stringify({ postId, comments }),
+            body: JSON.stringify({ post_id, comment }),
             headers: { 'Content-Type': 'application/json' },
         });
-
         if (response.ok) {
             document.location.reload();
         } else {
@@ -20,5 +19,5 @@ const commentFormHandler = async (event) => {
 };
 
 document
-  .querySelector('.comment-form')
-  .addEventListener('submit', commentFormHandler);
+    .querySelector('.comment-form')
+    .addEventListener('click', commentFormHandler);
