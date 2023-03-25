@@ -40,10 +40,14 @@ router.get('/:id/comment', withAuth, async (req, res) => {
             where: {
                 id: req.params.id
             },
-            include: {
+            include: [{
                 model: Post,
                 attributes: ['post_id'],
             },
+            {
+                model: User,
+                attributes: ['username'],
+            }],
         });
         if (!commentData) {
             res.status(404).json.end();
