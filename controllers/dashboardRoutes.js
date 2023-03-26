@@ -34,10 +34,18 @@ router.get('/post/:id', withAuth, async (req, res) => {
             where: {
                 id: req.params.id
             },
-            include: {
+            include: [{
                 model: User,
                 attributes: ['username'],
             },
+            {
+                model: Comments,
+                attributes: ['id',
+                    'comment',
+                    'user_id',
+                    'post_id',
+                    'createdAt'],
+            }]
         })
         if (!dashData) {
             res.status(404).json.end();

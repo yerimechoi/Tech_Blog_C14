@@ -8,27 +8,23 @@
             <p>{{post.content}}</p>
         </div>
         <button class="btn">
-            <a href="{{post.id}}/comment">Add Comment</a>
-        </button>
-    </div>
-
-    {{#if comments.length}}
-    {{#each comments}}
-    <div class="card">
-        <div class="card-header">
-            <h4>Comments</h4>
-        </div>
+            <a href="/post/{{post.id}}/comment">Add Comment</a>
+        </button>        
+        {{#if post.comments.length}}
+        {{#each post.comments}}
         <section class="card-body">
+            <h4>Comments</h4>
             <div>
                 <p>
                     {{comment}}
                 </p>
-                <p>Posted by {{user.username}} on {{createdAt}}</p>
+                <p>
+                    {{comment.user.username}}, {{createdAt}}
+                </p>
             </div>
         </section>
         {{/each}}
         {{/if}}
     </div>
+    </div>
 </div>
-
-<script src="js/comment.js"></script>

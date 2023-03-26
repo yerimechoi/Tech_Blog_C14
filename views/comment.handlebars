@@ -7,8 +7,8 @@
         <div class="card-body">
             <p>{{post.content}}</p>
         </div>
-        {{#if comment.length}}
-        {{#each comment}}
+        {{#if comments.length}}
+        {{#each comments}}
         <section class="card-body">
             <h4>Comments</h4>
             <div>
@@ -23,12 +23,10 @@
         {{/each}}
         {{/if}}
 
-        <form>
-            <input name="post-id" type="hidden" value="{{post.id}}" />
-            <textarea name="comment"></textarea>
-            <button class="btn comment-form">Comment</button>
-        </form>
+        <input name="post-id" type="hidden" value="{{post.id}}" />
+        <textarea name="comment"></textarea>
+        <button class="btn comment-form">Comment</button>
     </div>
 </div>
 
-<script src="js/comment.js"></script>
+<script src="/js/comment.js"></script>
